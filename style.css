@@ -1,0 +1,15 @@
+body, th {
+    background-color: grey;
+}
+
+table {
+  background-color: black;
+}
+
+h1, p {
+  color: Black;
+}
+
+select {
+  background-color: #8A9A5B;
+}
