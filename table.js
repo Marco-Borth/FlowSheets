@@ -2,18 +2,21 @@ var columns;
 var rows;
 
 function createTable(tableName){
-    columns = 16;
+    columns = 17;
+    if(tableName == "Expenses Table")
+        rows = 0;
     createColumns(tableName);
-    rows = 1;
     populateRows(tableName);
 }
 
 function createColumns(tableName){
-    var table = document.getElementById("myTable");
+    var table = document.getElementById(tableName);
     var row = document.createElement("tr");
+    rows++;
     row.append(tableName);
     table.appendChild(row);
     var row = document.createElement("tr");
+    rows++;
     var cell = null;
     for(i = 0; i < columns; i++) {
         cell = document.createElement("th");
@@ -22,14 +25,16 @@ function createColumns(tableName){
                 cell.append("Select Algorithm"); break;
             case 1:
                 if(tableName == "Expenses Table")
-                    cell.append("Budget Item");
+                    cell.append("Item");
                 else
-                    cell.append("Income Source");
+                    cell.append("Source");
                 break;
             case 14:
                 cell.append("Annual Summation"); break;
             case 15:
                 cell.append("Monthly Average"); break;
+            case 16:
+                cell.append("Edit:"); break;
             default:
                 const d = new Date();
                 d.setDate(1);
@@ -40,11 +45,13 @@ function createColumns(tableName){
         row.appendChild(cell);
     }
     table.appendChild(row);
+    document.getElementById("cellsCounter").innerHTML = "Columns: " + columns + ", Rows: " + rows;
 }
 
 function populateRows(tableName){
-    var table = document.getElementById("myTable");
+    var table = document.getElementById(tableName);
     var row = document.createElement("tr");
+    rows++;
     var cell = null;
     var menu = null;
     var option = null;
@@ -59,7 +66,6 @@ function populateRows(tableName){
                 menu.appendChild(option);
                 cell.appendChild(menu);
                 
-                rows++;
                 break;
             case 1:
                 cell = document.createElement("th");
@@ -71,6 +77,13 @@ function populateRows(tableName){
                 cell.appendChild(menu);
 
                 break;
+            case 16:
+                cell = document.createElement("th");
+                var button = document.createElement("button");
+                button.append("Delete");
+                cell.appendChild(button);
+                
+                break;
             default:
                 cell = document.createElement("td");
                 cell.append("$0.00");
@@ -78,4 +91,5 @@ function populateRows(tableName){
         row.appendChild(cell);
     }
     table.appendChild(row);
+    document.getElementById("cellsCounter").innerHTML = "Columns: " + columns + ", Rows: " + rows;
 }
