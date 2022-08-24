@@ -9,7 +9,10 @@ function createTable(tableName){
 }
 
 function createColumns(tableName){
-    var table = document.getElementById(tableName);
+    var table = document.getElementById("myTable");
+    var row = document.createElement("tr");
+    row.append(tableName);
+    table.appendChild(row);
     var row = document.createElement("tr");
     var cell = null;
     for(i = 0; i < columns; i++) {
@@ -18,7 +21,7 @@ function createColumns(tableName){
             case 0:
                 cell.append("Select Algorithm"); break;
             case 1:
-                if(tableName == "ExpensesTable")
+                if(tableName == "Expenses Table")
                     cell.append("Budget Item");
                 else
                     cell.append("Income Source");
@@ -40,7 +43,7 @@ function createColumns(tableName){
 }
 
 function populateRows(tableName){
-    var table = document.getElementById(tableName);
+    var table = document.getElementById("myTable");
     var row = document.createElement("tr");
     var cell = null;
     var menu = null;
@@ -69,7 +72,7 @@ function populateRows(tableName){
 
                 break;
             default:
-                cell = document.createElement("th");
+                cell = document.createElement("td");
                 cell.append("$0.00");
         }
         row.appendChild(cell);

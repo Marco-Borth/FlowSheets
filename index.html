@@ -8,13 +8,13 @@
       type="text/css"/>
     </head>
 
-    <body onload='createTable("ExpensesTable"), createTable("IncomeTable")'>
+    <body onload='createTable("Expenses Table"), createTable("Income Table")'>
         <h1>Welcome to Flowsheets!</h1>
         <div id = "screen">
-            <h2>Expenses Sheet</h2>
-            <table id="ExpensesTable"></table>
-            <h2>Income Sheet</h2>
-            <table id="IncomeTable"></table> 
+            <h2>Year 2022 Sheet</h2>
+            <table id="myTable"></table>
+            <button onclick='populateRows("Expenses Table")'>Add Expenses</button>
+            <button onclick='populateRows("Income Table")'>Add Income</button>
         </div>
     </body>
 </html>

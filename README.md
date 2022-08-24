@@ -1,2 +1,2 @@
-# flowsheets
-excel sheet program to include coding formulas
+# FlowSheets
+An Excel Sheets program to include coding formulas for calculations.
