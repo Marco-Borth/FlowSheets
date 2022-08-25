@@ -22,7 +22,7 @@ function createColumns(tableName){
         cell = document.createElement("th");
         switch(i) {
             case 0:
-                cell.append("Select Algorithm"); break;
+                cell.append("Select"); break;
             case 1:
                 if(tableName == "Expenses Table")
                     cell.append("Item");
@@ -53,43 +53,45 @@ function populateRows(tableName){
     var row = document.createElement("tr");
     rows++;
     var cell = null;
-    var menu = null;
-    var option = null;
     for(i = 0; i < columns; i++){
         switch(i) {
             case 0:
                 cell = document.createElement("th");
-                menu = document.createElement("select");
-                option = document.createElement("option");
-                
-                option.append("--Choose--");
-                menu.appendChild(option);
-                cell.appendChild(menu);
-                
+                addSelector(cell);
                 break;
             case 1:
                 cell = document.createElement("th");
-                menu = document.createElement("select");
-                option = document.createElement("option");
-
-                option.append("--Choose--");
-                menu.appendChild(option);
-                cell.appendChild(menu);
-
+                addInputBox(cell);
                 break;
             case 16:
                 cell = document.createElement("th");
-                var button = document.createElement("button");
-                button.append("Delete");
-                cell.appendChild(button);
-                
+                addEditOptions(cell);
                 break;
             default:
-                cell = document.createElement("td");
+                cell = document.createElement("th");
                 cell.append("$0.00");
         }
         row.appendChild(cell);
     }
     table.appendChild(row);
     document.getElementById("cellsCounter").innerHTML = "Columns: " + columns + ", Rows: " + rows;
+}
+
+function addSelector(cell) {
+    var menu = document.createElement("select");
+    var option = document.createElement("option"); 
+    option.append("---Choose---");
+    menu.appendChild(option);
+    cell.appendChild(menu);
+}
+
+function addInputBox(cell) {
+    var inputBox = document.createElement("input");
+    cell.appendChild(inputBox);
+}
+
+function addEditOptions(cell) {
+    var button = document.createElement("button");
+    button.append("Delete");
+    cell.appendChild(button);
 }
