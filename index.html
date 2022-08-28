@@ -2,7 +2,6 @@
     <head>
         <title>Flowsheets</title>
         <script src="table.js"></script>
-
         <link href="style.css"
       rel="stylesheet"
       type="text/css"/>
@@ -12,9 +11,9 @@
         <h1>Welcome to Flowsheets!</h1>
         <div id = "screen">
             <h2>Year 2022 Sheet</h2>
-            <h2 id = "cellsCounter"></h2> <h2 id = "rowsCounter"></h2>
-            <button onclick='populateRows("Expenses Table")'>Add Expenses</button>
-            <button onclick='populateRows("Income Table")'>Add Income</button>
+            <h2 id = "cellsCounter"></h2>
+            <button onclick='populateRow("Expenses Table")'>Add Expenses</button>
+            <button onclick='populateRow("Income Table")'>Add Income</button>
             <div id ="tablesArea">
                 <table id="Expenses Table"></table>
                 <table id="Income Table"></table>

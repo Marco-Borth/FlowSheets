@@ -6,14 +6,17 @@ function createTable(tableName){
     if(tableName == "Expenses Table")
         rows = 0;
     createColumns(tableName);
-    populateRows(tableName);
+    populateRow(tableName);
 }
 
 function createColumns(tableName){
     var table = document.getElementById(tableName);
     var row = document.createElement("tr");
     rows++;
-    row.append(tableName);
+    if(tableName == "Expenses Table")
+        row.append("Expenses");
+    else
+        row.append("Income");
     table.appendChild(row);
     var row = document.createElement("tr");
     rows++;
@@ -45,44 +48,54 @@ function createColumns(tableName){
         row.appendChild(cell);
     }
     table.appendChild(row);
-    document.getElementById("cellsCounter").innerHTML = "Columns: " + columns + ", Rows: " + rows;
+    updateDimensions();
 }
 
-function populateRows(tableName){
+function populateRow(tableName){
     var table = document.getElementById(tableName);
     var row = document.createElement("tr");
     rows++;
+    row.id = "r" + rows;
     var cell = null;
     for(i = 0; i < columns; i++){
+        if(i == 0 || i == 1 || i == 16)
+            cell = document.createElement("th");
+        else
+            cell = document.createElement("td");
+
+        cell.id = "r" + rows + ", c" + i; 
         switch(i) {
             case 0:
-                cell = document.createElement("th");
                 addSelector(cell);
                 break;
             case 1:
-                cell = document.createElement("th");
-                addInputBox(cell);
+                addSelector(cell);
                 break;
             case 16:
-                cell = document.createElement("th");
-                addEditOptions(cell);
+                addEditOptions(cell, row);
                 break;
             default:
-                cell = document.createElement("th");
                 cell.append("$0.00");
         }
         row.appendChild(cell);
     }
     table.appendChild(row);
-    document.getElementById("cellsCounter").innerHTML = "Columns: " + columns + ", Rows: " + rows;
+    updateDimensions();
 }
 
 function addSelector(cell) {
     var menu = document.createElement("select");
-    var option = document.createElement("option"); 
+    var option = document.createElement("option");
     option.append("---Choose---");
     menu.appendChild(option);
     cell.appendChild(menu);
+
+    if(cell.id.substring(4, 6) == "c1") {
+        option = document.createElement("option");
+        option.append("Custom");
+        menu.appendChild(option);
+        cell.appendChild(menu);
+    }
 }
 
 function addInputBox(cell) {
@@ -90,8 +103,28 @@ function addInputBox(cell) {
     cell.appendChild(inputBox);
 }
 
-function addEditOptions(cell) {
-    var button = document.createElement("button");
+function addEditOptions(cell, row) {
+    var button = null;
+    button = document.createElement("button");
+    button.id = "button " + cell.id;
+
+    
+    button.onclick = function() {  
+        deleteRow(row.id); 
+    }; 
     button.append("Delete");
     cell.appendChild(button);
+}
+
+function deleteRow(rowID) {
+    if(rows > 6) {
+        var row = document.getElementById(rowID);
+        row.remove();
+        rows--;
+        updateDimensions();
+    }
+}
+
+function updateDimensions() {
+    document.getElementById("cellsCounter").innerHTML = "Columns: " + columns + ", Rows: " + rows;
 }
