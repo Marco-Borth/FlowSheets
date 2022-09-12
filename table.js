@@ -8,7 +8,7 @@ function createTable(tableName){
     createColumns(tableName);
     populateRow(tableName);
 }
-
+/*
 function createColumns(tableName){
     var table = document.getElementById(tableName);
     var row = document.createElement("tr");
@@ -50,6 +50,7 @@ function createColumns(tableName){
     table.appendChild(row);
     updateDimensions();
 }
+*/
 
 function populateRow(tableName){
     var table = document.getElementById(tableName);
