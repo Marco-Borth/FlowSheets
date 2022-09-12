@@ -5,9 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: grey;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+td, tr {
+background-color: grey;
+text-align: center;
+}
+
+table {
+background-color: black;
+}
+
+h1, p {
+color: Black;
+}
+
+select, input {
+background-color: #8A9A5B;
 }
