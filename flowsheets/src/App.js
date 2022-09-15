@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {HeaderRow} from './HeaderRow.js';
+import {DataRow} from './DataRow.js';
 import React from 'react';
 
 class TableSheet extends React.Component {
@@ -12,6 +13,7 @@ class TableSheet extends React.Component {
       return(
           <table>
             <HeaderRow></HeaderRow>
+            <DataRow></DataRow>
           </table>
       );
   }
@@ -27,10 +29,16 @@ class App extends React.Component {
               <h2>Year 2022 Sheet</h2>
               <h2 id = "cellsCounter"></h2>
               <div id ="tablesArea">
-                <button onclick='populateRow("Expenses Table")'>Add Expenses</button>
-                <button onclick='populateRow("Income Table")'>Add Income</button>
-                <TableSheet id="ExpensesTable"></TableSheet>
-                <TableSheet id="IncomeTable"></TableSheet>
+                <button onclick='populateRow("Expenses Table")' Style="Float: left;">Add Expenses</button>
+                <button onclick='populateRow("Income Table")' Style="Float: left;">Add Income</button>
+                <div id="ExpensesTable">
+                  <h3>Expenses Table</h3>
+                  <TableSheet></TableSheet>
+                </div>
+                <div id="IncomeTable">
+                  <h3>Income Table</h3>
+                  <TableSheet></TableSheet>
+                </div>
               </div>
           </div>        
         </header>

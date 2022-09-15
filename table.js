@@ -8,49 +8,7 @@ function createTable(tableName){
     createColumns(tableName);
     populateRow(tableName);
 }
-/*
-function createColumns(tableName){
-    var table = document.getElementById(tableName);
-    var row = document.createElement("tr");
-    rows++;
-    if(tableName == "Expenses Table")
-        row.append("Expenses");
-    else
-        row.append("Income");
-    table.appendChild(row);
-    var row = document.createElement("tr");
-    rows++;
-    var cell = null;
-    for(i = 0; i < columns; i++) {
-        cell = document.createElement("th");
-        switch(i) {
-            case 0:
-                cell.append("Select"); break;
-            case 1:
-                if(tableName == "Expenses Table")
-                    cell.append("Item");
-                else
-                    cell.append("Source");
-                break;
-            case 14:
-                cell.append("Annual Summation"); break;
-            case 15:
-                cell.append("Monthly Average"); break;
-            case 16:
-                cell.append("Edit:"); break;
-            default:
-                const d = new Date();
-                d.setDate(1);
-                d.setMonth(i - 2);
-                d.toLocaleString("en-US", { month: "long", year:"numeric" });
-                cell.append(d.toLocaleString("en-US", { month: "long", year:"numeric" }));
-        }
-        row.appendChild(cell);
-    }
-    table.appendChild(row);
-    updateDimensions();
-}
-*/
+
 
 function populateRow(tableName){
     var table = document.getElementById(tableName);

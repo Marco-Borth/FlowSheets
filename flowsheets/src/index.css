@@ -14,18 +14,18 @@ code {
 }
 
 td, tr {
-background-color: #333;
-text-align: center;
+  background-color: #333;
+  text-align: center;
 }
 
 table {
-background-color: black;
+  background-color: black;
 }
 
-h1, p {
-color: Black;
+h1, h2, h3, p, th {
+  color: black;
 }
 
 select, input {
-background-color: #8A9A5B;
+  background-color: #8A9A5B;
 }
